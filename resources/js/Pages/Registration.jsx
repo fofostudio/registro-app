@@ -176,10 +176,10 @@ const RegistrationPage = () => {
                 {/* Header */}
                 <div className="text-center mb-8">
                     <h1 className="text-4xl font-bold text-gray-900 mb-4">
-                        Registro de Participantes Actividad NMAX 0Km
+                        Registro de Participantes Actividad NMAX 0Km Pool Party GBR & KBU Beach
                     </h1>
                     <p className="text-lg text-gray-600">
-                        Completa el formulario para obtener tu número único
+                        Completa el formulario para obtener tu número único para participar en la actividad.
                     </p>
                 </div>
 
