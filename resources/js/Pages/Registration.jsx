@@ -68,9 +68,10 @@ const RegistrationPage = () => {
 
     // Reglas del registro
     const rules = [
-        "El Participante debe estar en el evento y tener su documento",
+        "El Participante debe estar presente el evento",
+        "Debe presentar su documento de Identidad",
         "Cada participante puede registrarse una sola vez",
-        "Se te asignará un número único entre 0000 y 4999",
+        "Se te asignará un número único entre 0000 y 9999",
         "Recibirás un correo con la confirmación y tu número",
         "El registro es personal e intransferible",
         "Conserva tu número para futura referencia"
@@ -90,8 +91,8 @@ const RegistrationPage = () => {
             const totalAssigned = response.data.total_assigned;
             setStats({
                 totalAssigned,
-                totalAvailable: 4999,
-                percentage: (totalAssigned / 4999) * 100
+                totalAvailable: 9999,
+                percentage: (totalAssigned / 9999) * 100
             });
         } catch (error) {
             console.error('Error fetching stats:', error);
@@ -175,7 +176,7 @@ const RegistrationPage = () => {
                 {/* Header */}
                 <div className="text-center mb-8">
                     <h1 className="text-4xl font-bold text-gray-900 mb-4">
-                        Registro de Participantes
+                        Registro de Participantes Actividad NMAX 0Km
                     </h1>
                     <p className="text-lg text-gray-600">
                         Completa el formulario para obtener tu número único
@@ -190,7 +191,7 @@ const RegistrationPage = () => {
                             <h2 className="text-xl font-semibold">Estado de Registros</h2>
                         </div>
                         <div className="text-sm text-gray-500">
-                            Total disponible: 4999
+                            Total disponible: 9999
                         </div>
                     </div>
                     <div className="space-y-4">
@@ -207,7 +208,7 @@ const RegistrationPage = () => {
                             </div>
                         </div>
                         <div className="text-sm text-gray-500 text-center">
-                            Números disponibles: {4999 - stats.totalAssigned}
+                            Números disponibles: {9999 - stats.totalAssigned}
                         </div>
                     </div>
                 </div>

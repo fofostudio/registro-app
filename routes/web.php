@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RegistrationController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -21,6 +22,7 @@ use Inertia\Inertia;
 Route::get('/', function () {
     return Inertia::render('Registration');
 });
+Route::get('/registerwin', [RegistrationController::class, 'registerWin']);
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
