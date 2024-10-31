@@ -217,21 +217,19 @@ const RegistrationPage = () => {
                 <div className="flex justify-center mb-8">
                     <div className="bg-white rounded-lg shadow-sm p-1 inline-flex">
                         <button
-                            className={`px-6 py-2 rounded-md transition-all ${
-                                activeTab === 'form'
+                            className={`px-6 py-2 rounded-md transition-all ${activeTab === 'form'
                                     ? 'bg-blue-500 text-white shadow-md'
                                     : 'text-gray-600 hover:bg-gray-100'
-                            }`}
+                                }`}
                             onClick={() => setActiveTab('form')}
                         >
                             Registro
                         </button>
                         <button
-                            className={`px-6 py-2 rounded-md transition-all ${
-                                activeTab === 'list'
+                            className={`px-6 py-2 rounded-md transition-all ${activeTab === 'list'
                                     ? 'bg-blue-500 text-white shadow-md'
                                     : 'text-gray-600 hover:bg-gray-100'
-                            }`}
+                                }`}
                             onClick={() => setActiveTab('list')}
                         >
                             Participantes
@@ -290,11 +288,10 @@ const RegistrationPage = () => {
                                         {steps.map((step, index) => (
                                             <div
                                                 key={step.field}
-                                                className={`transition-all duration-300 ${
-                                                    index === currentStep
+                                                className={`transition-all duration-300 ${index === currentStep
                                                         ? 'opacity-100 transform translate-x-0'
                                                         : 'opacity-0 absolute -translate-x-full'
-                                                }`}
+                                                    }`}
                                             >
                                                 {index === currentStep && (
                                                     <div>
@@ -376,52 +373,82 @@ const RegistrationPage = () => {
                                 </div>
 
                                 {filteredRegistrations.length > 0 ? (
-                                    <div className="overflow-x-auto">
-                                        <table className="w-full">
-                                            <thead className="bg-gray-50">
-                                                <tr>
-                                                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                        Nombre
-                                                    </th>
-                                                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                        Identificación
-                                                    </th>
-                                                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                        Número Asignado
-                                                    </th>
-                                                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                        Fecha
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            <tbody className="bg-white divide-y divide-gray-200">
-                                                {filteredRegistrations.map((reg) => (
-                                                    <tr key={reg.id} className="hover:bg-gray-50 transition-colors">
-                                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                            {reg.nombre}
-                                                        </td>
-                                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                                                            {reg.identificacion}
-                                                        </td>
-                                                        <td className="px-6 py-4 whitespace-nowrap">
-                                                            <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
-                                                                <Hash className="w-4 h-4 mr-1" />
-                                                                {reg.numero_asignado}
-                                                            </span>
-                                                        </td>
-                                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                                                            {new Date(reg.created_at).toLocaleDateString('es-ES', {
-                                                                year: 'numeric',
-                                                                month: 'long',
-                                                                day: 'numeric',
-                                                                hour: '2-digit',
-                                                                minute: '2-digit'
-                                                            })}
-                                                        </td>
+                                    <div>
+                                        {/* Vista de escritorio - Tabla */}
+                                        <div className="hidden md:block overflow-x-auto">
+                                            <table className="w-full">
+                                                <thead className="bg-gray-50">
+                                                    <tr>
+                                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                            Nombre
+                                                        </th>
+                                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                            Identificación
+                                                        </th>
+                                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                            Número Asignado
+                                                        </th>
+                                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                            Fecha
+                                                        </th>
                                                     </tr>
-                                                ))}
-                                            </tbody>
-                                        </table>
+                                                </thead>
+                                                <tbody className="bg-white divide-y divide-gray-200">
+                                                    {filteredRegistrations.map((reg) => (
+                                                        <tr key={reg.id} className="hover:bg-gray-50 transition-colors">
+                                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                                {reg.nombre}
+                                                            </td>
+                                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                                                                {reg.identificacion}
+                                                            </td>
+                                                            <td className="px-6 py-4 whitespace-nowrap">
+                                                                <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                                                                    <Hash className="w-4 h-4 mr-1" />
+                                                                    {reg.numero_asignado}
+                                                                </span>
+                                                            </td>
+                                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                                                                {new Date(reg.created_at).toLocaleDateString('es-ES', {
+                                                                    year: 'numeric',
+                                                                    month: 'long',
+                                                                    day: 'numeric',
+                                                                    hour: '2-digit',
+                                                                    minute: '2-digit'
+                                                                })}
+                                                            </td>
+                                                        </tr>
+                                                    ))}
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                        {/* Vista móvil - Tarjetas */}
+                                        <div className="md:hidden space-y-4">
+                                            {filteredRegistrations.map((reg) => (
+                                                <div key={reg.id} className="bg-white rounded-lg shadow-sm p-4 space-y-3">
+                                                    <div className="flex justify-between items-start">
+                                                        <div>
+                                                            <h3 className="font-medium text-gray-900">{reg.nombre}</h3>
+                                                            <p className="text-sm text-gray-600">ID: {reg.identificacion}</p>
+                                                        </div>
+                                                        <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                                                            <Hash className="w-4 h-4 mr-1" />
+                                                            {reg.numero_asignado}
+                                                        </span>
+                                                    </div>
+                                                    <div className="text-sm text-gray-500">
+                                                        {new Date(reg.created_at).toLocaleDateString('es-ES', {
+                                                            year: 'numeric',
+                                                            month: 'long',
+                                                            day: 'numeric',
+                                                            hour: '2-digit',
+                                                            minute: '2-digit'
+                                                        })}
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
                                     </div>
                                 ) : (
                                     <div className="text-center py-12">
